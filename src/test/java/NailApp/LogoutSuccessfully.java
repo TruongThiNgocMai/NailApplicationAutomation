@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -85,11 +86,22 @@ public class LogoutSuccessfully extends ExtendReport {
 		logoutButton.click();
 		test.log(Status.PASS, "Click on logout button");
 		
-		// Verify user logout successfully 
+		// Verify notificate display 
 		notificateLabel = driver.findElement(By.id("android:id/alertTitle"));
 		notificateMessage = driver.findElement(By.id("android:id/message"));
 		confirmLabel = driver.findElement(By.id("android:id/button1"));
+		confirmLabel.click();
 		test.log(Status.PASS, "Verify user logout successfully");
         
+		// Verify user logout successfully and navigate to login page
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'The Nail')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'Đăng nhập')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'Nhập số điện thoại...')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'Nhập mật khẩu...')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'Đăng kí')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'Quên mật khẩu?')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'Đăng kí với')]")).isDisplayed());
+		Assert.assertTrue(driver.findElement(By.xpath("//*[contains(@text,'or')]")).isDisplayed());
+		test.log(Status.PASS, "Verify user logout successfully and navigate to login page successfully");
 	}
 }

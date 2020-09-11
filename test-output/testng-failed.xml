@@ -3,15 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="NailApp.RegisterSuccessfully">
+      <class name="NailApp.LogoutSuccessfully">
         <methods>
           <include name="reportSetup"/>
           <include name="reportTeardowm"/>
-          <include name="tearDown"/>
-          <include name="registerNewAccountSuccessfully"/>
+          <include name="TestLogoutSuccessfully"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- NailApp.RegisterSuccessfully -->
+      </class> <!-- NailApp.LogoutSuccessfully -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

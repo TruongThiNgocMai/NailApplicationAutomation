@@ -62,7 +62,7 @@ public class RegisterSuccessfully extends ExtendReport {
 		String SALTCHARS = "1234567890";
 		StringBuilder salt = new StringBuilder();
 		Random rnd = new Random();
-		while (salt.length() < 3) { // length of the random string.
+		while (salt.length() < 5) { // length of the random string.
 			int index = (int) (rnd.nextFloat() * SALTCHARS.length());
 			salt.append(SALTCHARS.charAt(index));
 		}
@@ -98,7 +98,7 @@ public class RegisterSuccessfully extends ExtendReport {
 		test.log(Status.PASS, "Input value for email field");
 
 		phoneInput = driver.findElement(By.xpath("//*[contains(@text,'Nhập số điện thoại...')]"));
-		phoneInputValue = "0396987" + getRandomString();
+		phoneInputValue = "03969" + getRandomString();
 		phoneInput.sendKeys(phoneInputValue + "\n");
 		test.log(Status.PASS, "Input value for phone field");
 
